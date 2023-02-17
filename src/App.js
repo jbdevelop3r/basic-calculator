@@ -19,9 +19,9 @@ function App() {
     try {
       const resultValue = new Function(`return ${result}`)();
       if (Number.isInteger(resultValue)) {
-        setResult(resultValue.toString()); // Convert the integer to a string
+        setResult(resultValue.toString()); 
       } else {
-        setResult(resultValue.toFixed(2)); // Limit the decimal places to two
+        setResult(resultValue.toFixed(2)); 
       }
     } catch (err) {
       setResult("Error");
