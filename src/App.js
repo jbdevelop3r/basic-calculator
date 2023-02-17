@@ -16,8 +16,12 @@ function App() {
   }
 
   const calculate = () => {
-    const resultValue = new Function(`return ${result}`)();  // create a function and immediately call it to evaluate the expression
-    setResult(resultValue);  // set the result to the computed value
+    try {
+      const resultValue = new Function(`return ${result}`)(); 
+      setResult(resultValue.toFixed(5));  
+    } catch (err) {
+      setResult("Error")
+    }
   }
   
 
