@@ -17,10 +17,14 @@ function App() {
 
   const calculate = () => {
     try {
-      const resultValue = new Function(`return ${result}`)(); 
-      setResult(resultValue.toFixed(5));  
+      const resultValue = new Function(`return ${result}`)();
+      if (Number.isInteger(resultValue)) {
+        setResult(resultValue.toString()); // Convert the integer to a string
+      } else {
+        setResult(resultValue.toFixed(2)); // Limit the decimal places to two
+      }
     } catch (err) {
-      setResult("Error")
+      setResult("Error");
     }
   }
   
